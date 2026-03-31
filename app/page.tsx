@@ -15,26 +15,30 @@ const TOOLS = [
     href: "/download",
     icon: "⬇️",
     title: "Reel Downloader",
-    description: "Download Instagram reels, videos & images instantly. No watermark, no login required.",
+    description:
+      "Download Instagram reels, videos & images instantly. No watermark, no login required.",
     badge: "Popular",
   },
   {
     href: "/caption",
     icon: "✍️",
     title: "Caption Generator",
-    description: "Generate viral Instagram captions for any topic and tone in seconds.",
+    description:
+      "Generate viral Instagram captions for any topic and tone in seconds.",
   },
   {
     href: "/hashtags",
     icon: "#️⃣",
     title: "Hashtag Generator",
-    description: "Get the best hashtags for your niche to maximize reach and engagement.",
+    description:
+      "Get the best hashtags for your niche to maximize reach and engagement.",
   },
   {
     href: "/bio",
     icon: "👤",
     title: "Bio Generator",
-    description: "Craft the perfect Instagram bio that converts visitors to followers.",
+    description:
+      "Craft the perfect Instagram bio that converts visitors to followers.",
   },
 ];
 
@@ -47,9 +51,11 @@ export default function HomePage() {
       </div>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
-          bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 border border-pink-200 dark:border-pink-800 mb-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+        <div
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
+          bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 border border-pink-200 dark:border-pink-800 mb-6"
+        >
           ✨ 100% Free — No Sign-up Required
         </div>
 
@@ -60,8 +66,8 @@ export default function HomePage() {
         </h1>
 
         <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Download reels, generate captions, hashtags & bios — everything a creator needs,
-          completely free.
+          Download reels, generate captions, hashtags & bios — everything a
+          creator needs, completely free.
         </p>
 
         {/* Inline downloader */}
@@ -92,8 +98,12 @@ export default function HomePage() {
             { value: "0", label: "Sign-ups Required" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-3xl font-extrabold gradient-brand-text">{stat.value}</p>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{stat.label}</p>
+              <p className="text-3xl font-extrabold gradient-brand-text">
+                {stat.value}
+              </p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
@@ -103,7 +113,9 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-3">All Free Tools</h2>
-          <p className="text-zinc-500 dark:text-zinc-400">Everything you need to grow on Instagram</p>
+          <p className="text-zinc-500 dark:text-zinc-400">
+            Everything you need to grow on Instagram
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -121,17 +133,33 @@ export default function HomePage() {
       {/* Features */}
       <section className="bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Why InstaToolkit?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why InstaToolkit?
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "⚡", title: "Lightning Fast", desc: "Results in under a second. No waiting, no delays." },
-              { icon: "🔒", title: "Private & Secure", desc: "We never store your data or downloaded content." },
-              { icon: "🆓", title: "Always Free", desc: "No subscriptions, no hidden fees, no account needed." },
+              {
+                icon: "⚡",
+                title: "Lightning Fast",
+                desc: "Results in under a second. No waiting, no delays.",
+              },
+              {
+                icon: "🔒",
+                title: "Private & Secure",
+                desc: "We never store your data or downloaded content.",
+              },
+              {
+                icon: "🆓",
+                title: "Always Free",
+                desc: "No subscriptions, no hidden fees, no account needed.",
+              },
             ].map((f) => (
               <div key={f.title} className="text-center">
                 <div className="text-4xl mb-3">{f.icon}</div>
                 <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm">{f.desc}</p>
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+                  {f.desc}
+                </p>
               </div>
             ))}
           </div>

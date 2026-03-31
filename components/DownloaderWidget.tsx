@@ -98,7 +98,7 @@ export function DownloaderWidget() {
           className="flex-1 px-4 py-3.5 rounded-xl border border-zinc-300 dark:border-zinc-700
             bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
             placeholder:text-zinc-400 dark:placeholder:text-zinc-600
-            focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm"
+            focus:outline-none focus:ring-2 focus:ring-pink-500 text-base"
         />
         <button
           type="submit"

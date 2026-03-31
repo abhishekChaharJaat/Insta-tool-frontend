@@ -66,7 +66,7 @@ export function GeneratorForm({
               bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
               placeholder:text-zinc-400 dark:placeholder:text-zinc-600
               focus:outline-none focus:ring-2 focus:ring-pink-500 dark:focus:ring-pink-400
-              transition-all"
+              transition-all text-base"
           />
           <button
             type="submit"
