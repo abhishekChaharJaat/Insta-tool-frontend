@@ -1,101 +1,142 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { AdBanner } from "@/components/AdBanner";
+import { ToolCard } from "@/components/ToolCard";
+import { DownloaderWidget } from "@/components/DownloaderWidget";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "InstaToolkit — Free Instagram Tools",
+  description:
+    "Download Instagram reels for free. Generate captions, hashtags & bios. The ultimate Instagram toolkit for creators.",
+};
+
+const TOOLS = [
+  {
+    href: "/download",
+    icon: "⬇️",
+    title: "Reel Downloader",
+    description: "Download Instagram reels, videos & images instantly. No watermark, no login required.",
+    badge: "Popular",
+  },
+  {
+    href: "/caption",
+    icon: "✍️",
+    title: "Caption Generator",
+    description: "Generate viral Instagram captions for any topic and tone in seconds.",
+  },
+  {
+    href: "/hashtags",
+    icon: "#️⃣",
+    title: "Hashtag Generator",
+    description: "Get the best hashtags for your niche to maximize reach and engagement.",
+  },
+  {
+    href: "/bio",
+    icon: "👤",
+    title: "Bio Generator",
+    description: "Craft the perfect Instagram bio that converts visitors to followers.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      {/* Header Ad */}
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <AdBanner slot="header" />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
+          bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 border border-pink-200 dark:border-pink-800 mb-6">
+          ✨ 100% Free — No Sign-up Required
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
+          The Ultimate
+          <span className="gradient-brand-text"> Instagram </span>
+          Toolkit
+        </h1>
+
+        <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Download reels, generate captions, hashtags & bios — everything a creator needs,
+          completely free.
+        </p>
+
+        {/* Inline downloader */}
+        <DownloaderWidget />
+
+        {/* Quick links */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+          {TOOLS.slice(1).map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="px-4 py-2 rounded-full text-sm font-medium border border-zinc-200 dark:border-zinc-700
+                text-zinc-600 dark:text-zinc-400 hover:border-pink-400 hover:text-pink-500 transition-colors"
+            >
+              {tool.icon} {tool.title}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="border-y border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { value: "500K+", label: "Downloads" },
+            { value: "1M+", label: "Captions Generated" },
+            { value: "4", label: "Free Tools" },
+            { value: "0", label: "Sign-ups Required" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="text-3xl font-extrabold gradient-brand-text">{stat.value}</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Tools grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-3">All Free Tools</h2>
+          <p className="text-zinc-500 dark:text-zinc-400">Everything you need to grow on Instagram</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {TOOLS.map((tool) => (
+            <ToolCard key={tool.href} {...tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* In-content ad */}
+      <div className="max-w-7xl mx-auto px-4 pb-10">
+        <AdBanner slot="in-content" />
+      </div>
+
+      {/* Features */}
+      <section className="bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h2 className="text-3xl font-bold text-center mb-12">Why InstaToolkit?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: "⚡", title: "Lightning Fast", desc: "Results in under a second. No waiting, no delays." },
+              { icon: "🔒", title: "Private & Secure", desc: "We never store your data or downloaded content." },
+              { icon: "🆓", title: "Always Free", desc: "No subscriptions, no hidden fees, no account needed." },
+            ].map((f) => (
+              <div key={f.title} className="text-center">
+                <div className="text-4xl mb-3">{f.icon}</div>
+                <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
