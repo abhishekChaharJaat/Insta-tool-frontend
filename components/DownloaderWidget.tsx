@@ -62,11 +62,21 @@ export function DownloaderWidget() {
     }
   };
 
+  const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
+
   const handleSaveFile = async () => {
     if (!result?.download_url) return;
     setDownloading(true);
     try {
-      const res = await fetch(buildProxyUrl(result.download_url, result.title || "instatoolkit_reel"));
+      const proxyUrl = buildProxyUrl(result.download_url, result.title || "instatoolkit_reel");
+
+      // iOS Safari doesn't support blob download — open in new tab so user can long-press save
+      if (isIOS()) {
+        window.open(proxyUrl, "_blank");
+        return;
+      }
+
+      const res = await fetch(proxyUrl);
       if (!res.ok) throw new Error("Download failed");
       const blob = await res.blob();
       const objectUrl = URL.createObjectURL(blob);
@@ -76,7 +86,8 @@ export function DownloaderWidget() {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(objectUrl);
+      // Delay revoke so browser has time to start download
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
     } catch {
       setError("Download failed. Please try again.");
     } finally {

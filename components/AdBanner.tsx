@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 interface AdBannerProps {
   slot: "header" | "sidebar" | "in-content";
   className?: string;
@@ -39,7 +41,11 @@ const FLIPKART_ADS = [
 ];
 
 export function AdBanner({ slot, className = "" }: AdBannerProps) {
-  const ad = FLIPKART_ADS[Math.floor(Math.random() * FLIPKART_ADS.length)];
+  const [adIndex, setAdIndex] = useState(0);
+  useEffect(() => {
+    setAdIndex(Math.floor(Math.random() * FLIPKART_ADS.length));
+  }, []);
+  const ad = FLIPKART_ADS[adIndex];
 
   if (slot === "in-content") {
     return (
